@@ -8,9 +8,10 @@ const bot = new Telegraf(BOT_TOKEN);
 console.log("---Program started---");
 
 bot.on(message('text'), async (ctx) => {
+  let a = ctx.message;
+    console.log(a.text);
+      
     
-  
-    // Using context shortcut
     await ctx.reply(`Hello friend <3`)
   })
 
