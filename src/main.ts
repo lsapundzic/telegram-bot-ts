@@ -1,5 +1,6 @@
 import {Context, Telegraf} from 'telegraf'
 import {message} from 'telegraf/filters'
+import parser from "./parser";
 
 const BOT_TOKEN: string = "6963748664:AAFBtwGm3Z8j3LN4FENWewp5jCpOf-yyZMU"
 
@@ -10,7 +11,8 @@ console.log("---Program started---");
 bot.on(message('text'), async (context) => {
     let messageMonitor = context.message;
 
-    await context.reply(`message received`)
+    await context.reply(`message received`);
+    parser();
 })
 
 bot.launch();
