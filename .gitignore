@@ -1,0 +1,34 @@
+# Node.js package manager
+node_modules/
+
+# TypeScript related files
+*.tsbuildinfo
+
+# JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+.idea/
+
+  # User-specific files (can be further customized)
+  .idea/workspace.xml
+  .idea/tasks.xml
+
+  # Additional directory-based project format exclusions (optional)
+  # If you remove the above .idea/ rule, uncomment these:
+  # .idea/dictionaries/
+  # .idea/libraries/
+
+# Temporary files
+*.log
+*.tmp
+*.pyc
+
+# Testing frameworks (add specific test runner patterns if needed)
+__pycache__/
+
+# Secret files (always recommended to ignore)
+.env*
+.secret*
+credentials*
+
+# Version control
+.git/
+.gitignore
