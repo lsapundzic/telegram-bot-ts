@@ -24,7 +24,7 @@ node_modules/
 # Testing frameworks (add specific test runner patterns if needed)
 __pycache__/
 
-# Secret files (always recommended to ignore)
+# Secret files
 .env*
 .secret*
 credentials*
