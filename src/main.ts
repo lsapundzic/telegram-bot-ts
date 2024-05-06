@@ -9,11 +9,10 @@ const token = process.env.BOT_TOKEN;
 
 const bot = new Telegraf(token);
 
-console.log("---Program started---");
+console.log("---Bot started---");
 
 bot.on(message('text'), async (context) => {
     let messageMonitor = context.message;
-
     await context.reply(`message received`);
 })
 
