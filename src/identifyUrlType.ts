@@ -1,3 +1,4 @@
+// TODO: the interface solution is not that greaet
 interface Structure {
     musicLink: boolean;
     platform: "tidal" | "spotify" | "other";
