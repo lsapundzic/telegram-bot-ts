@@ -6,7 +6,6 @@ interface PlatformLink {
 }
 
 interface SongLinkData {
-    userCountry: string;
     linksByPlatform: {
         [platform: string]: PlatformLink;
     };
@@ -16,23 +15,21 @@ export default async function handleUrl (url: string) {
     let encodedUrl = encodeURIComponent(url);
 
     try {
-        const responsePromise = fetch(`https://api.song.link/v1-alpha.1/links?url=${encodedUrl}&userCountry=US&songIfSingle=true`);
+        const responsePromise = fetch(`https://api.song.link/v1-alpha.1/links?url=${url}&userCountry=US&songIfSingle=true`);
         const response = await responsePromise;
     
         if (response.ok) {
             const receivedData = await response.json() as SongLinkData;
-    
-            // Now TypeScript knows the type of receivedData
-            console.log("userCountry:", receivedData.userCountry);
             
             // Accessing links by platform
             // Object.keys(receivedData.linksByPlatform).forEach(platform => {
             //     const platformLink = receivedData.linksByPlatform[platform];
             //     console.log(`${platform} link: --`, platformLink.url);
             // });
-            // You can access other platforms similarly
+         
+            console.log(receivedData.linksByPlatform.spotify.url);
             
-            return receivedData.linksByPlatform.spotify.url;
+            // return receivedData.linksByPlatform.spotify.url;
             
         } else {
             console.error("Network response was not ok:", response.status, " : ", response.statusText);

@@ -1,6 +1,7 @@
 import {Context, Telegraf} from 'telegraf'
 import {message} from 'telegraf/filters'
 import checkUrl from "./checkUrl";
+import handleUrl from './handleUrl';
 
 
 // Disabled npm package because idk how it works
@@ -31,6 +32,8 @@ bot.on(message('text'), async (context) => {
     } else {
         console.error("Error: Fetch response is not a string.");
     }
+
+    
 })
 
 bot.launch();
