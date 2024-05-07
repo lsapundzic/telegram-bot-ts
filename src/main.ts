@@ -1,5 +1,6 @@
 import {Context, Telegraf} from 'telegraf'
 import {message} from 'telegraf/filters'
+import checkUrl from "./checkUrl";
 
 
 // Disabled npm package because idk how it works
@@ -19,11 +20,11 @@ bot.on(message('text'), async (context) => {
     let messageData = context.message;
     let userName = context.message.from.username;
     let userMessage = context.message.text;
-    
+
     console.log(userName, " said ", userMessage);
 
-    checkTidalUrl(userMessage);
-    
+    checkUrl(userMessage);
+
     await context.reply(`${userName} said ${userMessage}`);
 })
 
