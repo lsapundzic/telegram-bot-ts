@@ -28,11 +28,14 @@ bot.on(message('text'), async (context) => {
     // TODO: More meaningful print
     console.log(`${userName}: ${chatMessage}`);
 
-    if (identifyUrlType(chatMessage).musicLink) {
+    let platformUrl = identifyUrlType(chatMessage);
+
+    if(platformUrl){
         context.reply("Yes")
     } else {
         context.reply("No")
     }
+
 
     // // TODO: decouple url check from fetching
     // let returnedFetchResponse = await checkUrl(chatMessage);
