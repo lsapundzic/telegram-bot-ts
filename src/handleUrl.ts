@@ -12,7 +12,7 @@ interface SongLinkData {
     };
 }
 
-const handleUrl = async (url: string) => {
+export default async function handleUrl (url: string) {
     let encodedUrl = encodeURIComponent(url);
 
     try {
@@ -26,16 +26,16 @@ const handleUrl = async (url: string) => {
             console.log("userCountry:", receivedData.userCountry);
             
             // Accessing links by platform
-            Object.keys(receivedData.linksByPlatform).forEach(platform => {
-                const platformLink = receivedData.linksByPlatform[platform];
-                console.log(`${platform} link: --`, platformLink.url);
-            });
+            // Object.keys(receivedData.linksByPlatform).forEach(platform => {
+            //     const platformLink = receivedData.linksByPlatform[platform];
+            //     console.log(`${platform} link: --`, platformLink.url);
+            // });
             // You can access other platforms similarly
             
             return receivedData.linksByPlatform.spotify.url;
             
         } else {
-            console.error("Network response was not ok:", response.status);
+            console.error("Network response was not ok:", response.status, " : ", response.statusText);
         }
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -89,5 +89,3 @@ const handleUrl = async (url: string) => {
 //         console.log("Failed to fetch data");
 //     }    
 // }
-
-export default handleUrl;

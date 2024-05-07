@@ -12,9 +12,6 @@ export default async function checkUrl(text: string) {
        
         return handleResult;
       
-      
-       
-       
     } else {
         console.log("The string is not a Tidal URL");
     }
