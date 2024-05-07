@@ -11,6 +11,7 @@ import handleUrl from './handleUrl';
 
 // const token = process.env.BOT_TOKEN;
 // TODO: Secure the token
+// TODO: generate new token
 const BOT_TOKEN = "6963748664:AAHsTJkVqKa9ttyTBAF-J5T7g6p11NT0nZ8"
 
 const bot = new Telegraf(BOT_TOKEN);
@@ -18,15 +19,21 @@ const bot = new Telegraf(BOT_TOKEN);
 console.log("PROGRAM STARTED \n");
 
 bot.on(message('text'), async (context) => {
-    let messageData = context.message;
+    // let chatObject = context.message;
+    // console.log(chatObject);
+    
+    
     let userName = context.message.from.username;
-    let userMessage = context.message.text;
+    let chatMessage = context.message.text;
 
-    console.log(userName, " said ", userMessage);
+    // TODO: More meaningful print
+    console.log(`${userName}: ${chatMessage}`);
 
-    let returnedFetchResponse = await checkUrl(userMessage);
+    // TODO: decouple url check from fetching
+    let returnedFetchResponse = await checkUrl(chatMessage);
     console.log(returnedFetchResponse);
     
+    // TODO: resolve this mess
     if (typeof returnedFetchResponse === 'string') {
         await context.reply(returnedFetchResponse);
     } else {
