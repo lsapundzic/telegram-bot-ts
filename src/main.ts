@@ -23,9 +23,14 @@ bot.on(message('text'), async (context) => {
 
     console.log(userName, " said ", userMessage);
 
-    checkUrl(userMessage);
-
-    await context.reply(`${userName} said ${userMessage}`);
+    let returnedFetchResponse = await checkUrl(userMessage);
+    console.log(returnedFetchResponse);
+    
+    if (typeof returnedFetchResponse === 'string') {
+        await context.reply(returnedFetchResponse);
+    } else {
+        console.error("Error: Fetch response is not a string.");
+    }
 })
 
 bot.launch();

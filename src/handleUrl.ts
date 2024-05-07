@@ -31,8 +31,8 @@ const handleUrl = async (url: string) => {
                 console.log(`${platform} link: --`, platformLink.url);
             });
             // You can access other platforms similarly
-            console.log("\nDESIRE\n ---\n");
-            console.log(receivedData.linksByPlatform.spotify.url);
+            
+            return receivedData.linksByPlatform.spotify.url;
             
         } else {
             console.error("Network response was not ok:", response.status);
