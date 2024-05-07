@@ -11,6 +11,10 @@ interface PlatformLink {
 }
 
 export default async function fetchSongLink (url: string) { 
+    console.log("PASSED URL:");
+    console.log(url);
+    
+    
 
     // Recommended by the API documentation
     let encodedUrl = encodeURIComponent(url);

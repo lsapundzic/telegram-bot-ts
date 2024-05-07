@@ -32,8 +32,14 @@ bot.on(message('text'), async (context) => {
 
     if(platformUrl){
         // await fetchSongLink(platformUrl.url)
-        let response = await fetchSongLink("https://tidal.com/browse/track/77814986")
-        context.reply(response)
+        let response = fetchSongLink(platformUrl.url)
+        context.reply("yes")
+
+        // TODO: ahead of the actual problem
+        if (typeof response === 'string') {
+            // context.reply("yes")
+        }
+        
     } else {
         context.reply("No")
     }
