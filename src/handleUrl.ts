@@ -5,11 +5,10 @@ const handleUrl = async (url: string) => {
         // Make the fetch request and get a Promise
         const responsePromise = fetch(`https://api.song.link/v1-alpha.1/links?url=${encodedUrl}&userCountry=US&songIfSingle=true`);
     
-        // Handle the Promise using .then and .catch
         const response = await responsePromise; // Wait for the response
     
         if (response.ok) {
-          const receivedData = await response.json(); // Parse JSON response (wait for parsing)
+          const receivedData = await response.json(); 
           console.log(receivedData);
     
         } else {
