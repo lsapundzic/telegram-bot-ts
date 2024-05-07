@@ -1,13 +1,21 @@
-export default function handleUrl(url: string) {
+const handleUrl = async (url: string) => {
     let encodedUrl = encodeURIComponent(url);
 
-    fetchSongInfo(encodedUrl);
+    let receivedData = await fetchSongInfo(encodedUrl);
 
+    console.log(receivedData);
+    
+    
 }
 
 const fetchSongInfo = async (newUrl:string) => {
-    const res = await fetch(`https://api.song.link/v1-alpha.1/links?url=spotify%3Atrack%3A0Jcij1eWd5bDMU5iPbxe2i&userCountry=US&songIfSingle=true>`)
-    const response = await res.json();
-    console.log(response);
-    
+    try {
+        const res = await fetch(`https://api.song.link/v1-alpha.1/links?url=${newUrl}&userCountry=US&songIfSingle=true>`)
+        const response = await res.json();
+        return response;
+    } catch (error) {
+        console.log("Failed to fetch data");
+    }    
 }
+
+export default handleUrl;
