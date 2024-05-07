@@ -1,7 +1,7 @@
 import {Context, Telegraf} from 'telegraf'
 import {message} from 'telegraf/filters'
 import identifyUrlType from "./identifyUrlType";
-import handleUrl from './handleUrl';
+import fetchSongLink from './fetchSongLink';
 
 
 // Disabled npm package because idk how it works

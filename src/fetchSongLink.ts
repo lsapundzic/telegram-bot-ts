@@ -11,7 +11,7 @@ interface SongLinkData {
     };
 }
 
-export default async function handleUrl (url: string) {
+export default async function fetchSongLink (url: string) {
     let encodedUrl = encodeURIComponent(url);
 
     try {

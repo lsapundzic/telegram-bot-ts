@@ -1,4 +1,4 @@
-import handleUrl from "./handleUrl";
+import fetchSongLink from "./fetchSongLink";
 
 export default function identifyUrlType(chatMessage: string): string {
 
