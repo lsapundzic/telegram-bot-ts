@@ -16,8 +16,13 @@ const bot = new Telegraf(BOT_TOKEN);
 console.log("PROGRAM STARTED \n");
 
 bot.on(message('text'), async (context) => {
-    let messageMonitor = context.message;
-    await context.reply(`message received`);
+    let messageData = context.message;
+    let userName = context.message.from.username;
+    let userMessage = context.message.text;
+    
+    console.log(userName, " said ", userMessage);
+    
+    await context.reply(`${userName} said ${userMessage}`);
 })
 
 bot.launch();
