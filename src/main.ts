@@ -1,6 +1,6 @@
 import {Context, Telegraf} from 'telegraf'
 import {message} from 'telegraf/filters'
-import checkUrl from "./checkUrl";
+import identifyUrlType from "./identifyUrlType";
 import handleUrl from './handleUrl';
 
 
@@ -22,23 +22,24 @@ bot.on(message('text'), async (context) => {
     // let chatObject = context.message;
     // console.log(chatObject);
     
-    
     let userName = context.message.from.username;
     let chatMessage = context.message.text;
 
     // TODO: More meaningful print
     console.log(`${userName}: ${chatMessage}`);
 
-    // TODO: decouple url check from fetching
-    let returnedFetchResponse = await checkUrl(chatMessage);
-    console.log(returnedFetchResponse);
+    identifyUrlType(chatMessage);
+
+    // // TODO: decouple url check from fetching
+    // let returnedFetchResponse = await checkUrl(chatMessage);
+    // console.log(returnedFetchResponse);
     
-    // TODO: resolve this mess
-    if (typeof returnedFetchResponse === 'string') {
-        await context.reply(returnedFetchResponse);
-    } else {
-        console.error("Error: Fetch response is not a string.");
-    }
+    // // TODO: resolve this mess
+    // if (typeof returnedFetchResponse === 'string') {
+    //     await context.reply(returnedFetchResponse);
+    // } else {
+    //     console.error("Error: Fetch response is not a string.");
+    // }
 
     
 })
