@@ -8,7 +8,7 @@ import {message} from 'telegraf/filters'
 // dotenv.config();
 
 // const token = process.env.BOT_TOKEN;
-
+// TODO: Secure the token
 const BOT_TOKEN = "6963748664:AAHsTJkVqKa9ttyTBAF-J5T7g6p11NT0nZ8"
 
 const bot = new Telegraf(BOT_TOKEN);
@@ -21,6 +21,8 @@ bot.on(message('text'), async (context) => {
     let userMessage = context.message.text;
     
     console.log(userName, " said ", userMessage);
+
+    checkTidalUrl(userMessage);
     
     await context.reply(`${userName} said ${userMessage}`);
 })
