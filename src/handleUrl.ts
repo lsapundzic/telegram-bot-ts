@@ -32,6 +32,7 @@ const handleUrl = async (url: string) => {
             });
             // You can access other platforms similarly
             console.log("\nDESIRE\n ---\n");
+            console.log(receivedData.linksByPlatform.spotify.url);
             
         } else {
             console.error("Network response was not ok:", response.status);
