@@ -31,7 +31,9 @@ bot.on(message('text'), async (context) => {
     let platformUrl = identifyUrlType(chatMessage);
 
     if(platformUrl){
-        context.reply("Yes")
+        // await fetchSongLink(platformUrl.url)
+        let response = await fetchSongLink("https://tidal.com/browse/track/77814986")
+        context.reply(response)
     } else {
         context.reply("No")
     }

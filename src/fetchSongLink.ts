@@ -1,38 +1,33 @@
-interface PlatformLink {
-    country: string;
-    url: string;
-    entityUniqueId: string;
-    // Add other properties specific to each platform if needed
-}
-
 interface SongLinkData {
     linksByPlatform: {
         [platform: string]: PlatformLink;
     };
 }
 
-export default async function fetchSongLink (url: string) {
+interface PlatformLink {
+    country: string;
+    url: string;
+    entityUniqueId: string;
+}
+
+export default async function fetchSongLink (url: string) { 
+
+    // Recommended by the API documentation
     let encodedUrl = encodeURIComponent(url);
 
     try {
-        const responsePromise = fetch(`https://api.song.link/v1-alpha.1/links?url=${url}&userCountry=US&songIfSingle=true`);
+        const responsePromise = fetch(`https://api.song.link/v1-alpha.1/links?url=${encodedUrl}&userCountry=US&songIfSingle=true`);
         const response = await responsePromise;
     
         if (response.ok) {
             const receivedData = await response.json() as SongLinkData;
-            
-            // Accessing links by platform
-            // Object.keys(receivedData.linksByPlatform).forEach(platform => {
-            //     const platformLink = receivedData.linksByPlatform[platform];
-            //     console.log(`${platform} link: --`, platformLink.url);
-            // });
          
             console.log(receivedData.linksByPlatform.spotify.url);
             
             // return receivedData.linksByPlatform.spotify.url;
             
         } else {
-            console.error("Network response was not ok:", response.status, " : ", response.statusText);
+            console.error("Network response status", response.status, " : ", response.statusText);
         }
     } catch (error) {
         console.error("Error fetching data:", error);
