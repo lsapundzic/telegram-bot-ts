@@ -10,6 +10,9 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 
 if (!BOT_TOKEN) {
     throw new Error('Missing environment variable BOT_TOKEN');
+} else {
+    console.log("Environment variable available");
+    
 }
 
 const bot = new Telegraf(BOT_TOKEN);
