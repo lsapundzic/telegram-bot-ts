@@ -17,24 +17,24 @@ const bot = new Telegraf(secret);
 console.log("BOT STARTED \n");
 
 bot.on(message('text'), async (context) => {
-    
+
     let userName = context.message.from.username;
     let message = context.message.text;
 
     console.log(`${userName}: ${message}`);
 
-    let platformUrl = identifyUrlType(message);    
+    let platformUrl = identifyUrlType(message);
 
-    if(platformUrl){
-        let response = await fetchSongLink(platformUrl.url);        
+    if (platformUrl) {
+        let response = await fetchSongLink(platformUrl.url);
 
         if (typeof response === 'string') {
             console.log("Bot response: ", response);
-            context.reply(response)
+            await context.reply(response)
         }
-    } 
+    }
 
-    console.log("\n");    
+    console.log("\n");
 })
 
 bot.launch();
