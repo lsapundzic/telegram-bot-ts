@@ -12,7 +12,6 @@ export default function identifyUrlType(chatMessage: string): Url | undefined {
 
     console.log("String sent back by the identifyUrlType: ", match?.[0]);
     
-    // Abbreviated if-else 
+    // Abbreviated the if-else 
     return match?.[0] ? { url: match[0] } : undefined;
-    
 }

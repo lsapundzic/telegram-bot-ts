@@ -16,7 +16,7 @@ const BOT_TOKEN = "6963748664:AAHsTJkVqKa9ttyTBAF-J5T7g6p11NT0nZ8"
 
 const bot = new Telegraf(BOT_TOKEN);
 
-console.log("PROGRAM STARTED \n");
+console.log("BOT STARTED \n");
 
 bot.on(message('text'), async (context) => {
     
@@ -31,7 +31,6 @@ bot.on(message('text'), async (context) => {
     
 
     if(platformUrl){
-        // await fetchSongLink(platformUrl.url)
         let response = await fetchSongLink(platformUrl.url)
         console.log("logic response: ", response);
         
@@ -43,25 +42,9 @@ bot.on(message('text'), async (context) => {
         
     } else {
         console.log("Not a Tidal URL");
-        
-        
     }
 
-    console.log("\n");
-    
-
-    // // TODO: decouple url check from fetching
-    // let returnedFetchResponse = await checkUrl(chatMessage);
-    // console.log(returnedFetchResponse);
-    
-    // // TODO: resolve this mess
-    // if (typeof returnedFetchResponse === 'string') {
-    //     await context.reply(returnedFetchResponse);
-    // } else {
-    //     console.error("Error: Fetch response is not a string.");
-    // }
-
-    
+    console.log("\n");    
 })
 
 bot.launch();
