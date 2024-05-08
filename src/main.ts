@@ -12,8 +12,6 @@ if (!secret) {
     throw new Error('Missing environment variable BOT_TOKEN');
 }
 
-// TODO: generate new token
-
 const bot = new Telegraf(secret);
 
 console.log("BOT STARTED \n");
@@ -21,25 +19,19 @@ console.log("BOT STARTED \n");
 bot.on(message('text'), async (context) => {
     
     let userName = context.message.from.username;
-    let chatMessage = context.message.text;
+    let message = context.message.text;
 
-    // TODO: More meaningful print
-    console.log(`${userName}: ${chatMessage}`);
+    console.log(`${userName}: ${message}`);
 
-    let platformUrl = identifyUrlType(chatMessage);
-    console.log("String received back to main:", platformUrl?.url);
-    
+    let platformUrl = identifyUrlType(message);    
 
     if(platformUrl){
-        let response = await fetchSongLink(platformUrl.url)
-        console.log("logic response: ", response);
-        
+        let response = await fetchSongLink(platformUrl.url);        
 
         if (typeof response === 'string') {
-            console.log("RESPONSE: ", response);
+            console.log("Spotify URL: ", response);
             context.reply(response)
         }
-        
     } 
 
     console.log("\n");    
