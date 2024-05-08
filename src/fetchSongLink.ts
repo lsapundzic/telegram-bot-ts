@@ -12,12 +12,8 @@ interface PlatformLink {
 
 export default async function fetchSongLink (url: string) { 
     
-    console.log("URL received by fetchSongLing:", url);
-
     // Recommended by the API documentation
-    let encodedUrl = encodeURIComponent(url);
-    console.log("Encoded URL in fetchSongLink:", encodedUrl);
-    
+    let encodedUrl = encodeURIComponent(url);    
 
     try {
         const responsePromise = fetch(`https://api.song.link/v1-alpha.1/links?url=${encodedUrl}&userCountry=US&songIfSingle=true`);
@@ -26,9 +22,9 @@ export default async function fetchSongLink (url: string) {
         if (response.ok) {
             const receivedData = await response.json() as SongLinkData;
          
-            console.log(receivedData.linksByPlatform.spotify.url);
+            // console.log("Fetched url: ", receivedData.linksByPlatform.spotify.url);
             
-            // return receivedData.linksByPlatform.spotify.url;
+            return receivedData.linksByPlatform.spotify.url;
             
         } else {
             console.error("Network response status", response.status, " : ", response.statusText);

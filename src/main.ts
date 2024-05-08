@@ -27,21 +27,23 @@ bot.on(message('text'), async (context) => {
     console.log(`${userName}: ${chatMessage}`);
 
     let platformUrl = identifyUrlType(chatMessage);
-    console.log("String received back to main:", platformUrl);
+    console.log("String received back to main:", platformUrl?.url);
     
 
     if(platformUrl){
         // await fetchSongLink(platformUrl.url)
-        // let response = fetchSongLink(platformUrl.url)
-        context.reply("Tidal URL found")
+        let response = await fetchSongLink(platformUrl.url)
+        console.log("logic response: ", response);
+        
 
-        // TODO: ahead of the actual problem
-        // if (typeof response === 'string') {
-        //     // context.reply("yes")
-        // }
+        if (typeof response === 'string') {
+            console.log("RESPONSE: ", response);
+            context.reply(response)
+        }
         
     } else {
-        context.reply("NO")
+        console.log("Not a Tidal URL");
+        
         
     }
 
