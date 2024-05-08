@@ -2,7 +2,7 @@
 
 ## About
 
-Effortlessly convert your Tidal song links to Spotify with this Telegram bot.
+Convert your Tidal song links to Spotify with this Telegram bot.
 
 ## Description
 
