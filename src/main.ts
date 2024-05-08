@@ -2,19 +2,19 @@ import {Context, Telegraf} from 'telegraf'
 import {message} from 'telegraf/filters'
 import identifyUrlType from "./identifyUrlType";
 import fetchSongLink from './fetchSongLink';
+import * as dotenv from 'dotenv';
 
+dotenv.config();
 
-// Disabled npm package because idk how it works
-// import * as dotenv from 'dotenv';
+const secret = process.env.BOT_TOKEN;
 
-// dotenv.config();
+if (!secret) {
+    throw new Error('Missing environment variable BOT_TOKEN');
+}
 
-// const token = process.env.BOT_TOKEN;
-// TODO: Secure the token
 // TODO: generate new token
-const BOT_TOKEN = "6963748664:AAHsTJkVqKa9ttyTBAF-J5T7g6p11NT0nZ8"
 
-const bot = new Telegraf(BOT_TOKEN);
+const bot = new Telegraf(secret);
 
 console.log("BOT STARTED \n");
 
@@ -40,9 +40,7 @@ bot.on(message('text'), async (context) => {
             context.reply(response)
         }
         
-    } else {
-        console.log("Not a Tidal URL");
-    }
+    } 
 
     console.log("\n");    
 })
