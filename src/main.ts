@@ -19,8 +19,6 @@ const bot = new Telegraf(BOT_TOKEN);
 console.log("PROGRAM STARTED \n");
 
 bot.on(message('text'), async (context) => {
-    // let chatObject = context.message;
-    // console.log(chatObject);
     
     let userName = context.message.from.username;
     let chatMessage = context.message.text;
@@ -32,16 +30,17 @@ bot.on(message('text'), async (context) => {
 
     if(platformUrl){
         // await fetchSongLink(platformUrl.url)
-        let response = fetchSongLink(platformUrl.url)
-        context.reply("yes")
+        // let response = fetchSongLink(platformUrl.url)
+        context.reply("Tidal URL found")
 
         // TODO: ahead of the actual problem
-        if (typeof response === 'string') {
-            // context.reply("yes")
-        }
+        // if (typeof response === 'string') {
+        //     // context.reply("yes")
+        // }
         
     } else {
-        context.reply("No")
+        console.log("No Tidal URL");
+        
     }
 
 
