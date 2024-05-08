@@ -6,7 +6,7 @@ Convert your Tidal song links to Spotify with this Telegram bot.
 
 ## Description
 
-This bot seamlessly transfers your Tidal playlists to Spotify. Simply paste your Tidal song URL and get the equivalent
+This bot transfers your Tidal playlists to Spotify. Just paste your Tidal song URL and get the equivalent
 Spotify link.
 
 ## Features
