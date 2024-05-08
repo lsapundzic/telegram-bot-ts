@@ -6,13 +6,13 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const secret = process.env.BOT_TOKEN;
+const BOT_TOKEN = process.env.BOT_TOKEN;
 
-if (!secret) {
+if (!BOT_TOKEN) {
     throw new Error('Missing environment variable BOT_TOKEN');
 }
 
-const bot = new Telegraf(secret);
+const bot = new Telegraf(BOT_TOKEN);
 
 console.log("BOT STARTED \n");
 

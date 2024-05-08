@@ -28,4 +28,4 @@ Spotify link.
 4. Paste your Tidal song URL in the chat window
 5. The bot will reply with the corresponding Spotify URL
 
-**Enjoy!**
+**Enjoy!*
