@@ -11,13 +11,13 @@ interface PlatformLink {
 }
 
 export default async function fetchSongLink (url: string) { 
-    console.log("PASSED URL:");
-    console.log(url);
     
-    
+    console.log("URL received by fetchSongLing:", url);
 
     // Recommended by the API documentation
     let encodedUrl = encodeURIComponent(url);
+    console.log("Encoded URL in fetchSongLink:", encodedUrl);
+    
 
     try {
         const responsePromise = fetch(`https://api.song.link/v1-alpha.1/links?url=${encodedUrl}&userCountry=US&songIfSingle=true`);

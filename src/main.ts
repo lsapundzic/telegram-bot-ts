@@ -27,6 +27,8 @@ bot.on(message('text'), async (context) => {
     console.log(`${userName}: ${chatMessage}`);
 
     let platformUrl = identifyUrlType(chatMessage);
+    console.log("String received back to main:", platformUrl);
+    
 
     if(platformUrl){
         // await fetchSongLink(platformUrl.url)
@@ -39,10 +41,12 @@ bot.on(message('text'), async (context) => {
         // }
         
     } else {
-        console.log("No Tidal URL");
+        context.reply("NO")
         
     }
 
+    console.log("\n");
+    
 
     // // TODO: decouple url check from fetching
     // let returnedFetchResponse = await checkUrl(chatMessage);
