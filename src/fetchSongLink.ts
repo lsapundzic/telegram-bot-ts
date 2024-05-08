@@ -5,12 +5,12 @@ interface SongLinkData {
 }
 
 interface PlatformLink {
-    country: string;
     url: string;
     entityUniqueId: string;
 }
 
 export default async function fetchSongLink (url: string) { 
+    console.log("Received Tidal URL:", url);
     
     // Recommended by the API documentation
     let encodedUrl = encodeURIComponent(url);    
@@ -22,7 +22,7 @@ export default async function fetchSongLink (url: string) {
         if (response.ok) {
             const receivedData = await response.json() as SongLinkData;
          
-            // console.log("Fetched url: ", receivedData.linksByPlatform.spotify.url);
+            console.log("Fetched Spotify URL: ", receivedData.linksByPlatform.spotify.url);
             
             return receivedData.linksByPlatform.spotify.url;
             
@@ -30,6 +30,6 @@ export default async function fetchSongLink (url: string) {
             console.error("Network response status", response.status, " : ", response.statusText);
         }
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Failed to perform the fetch request. Error: ", error);
     }
 }
