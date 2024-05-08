@@ -29,7 +29,7 @@ bot.on(message('text'), async (context) => {
         let response = await fetchSongLink(platformUrl.url);        
 
         if (typeof response === 'string') {
-            console.log("Spotify URL: ", response);
+            console.log("Bot response: ", response);
             context.reply(response)
         }
     } 
