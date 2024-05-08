@@ -12,7 +12,6 @@ if (!BOT_TOKEN) {
     throw new Error('Missing environment variable BOT_TOKEN');
 } else {
     console.log("Environment variable available");
-    
 }
 
 const bot = new Telegraf(BOT_TOKEN);
@@ -23,7 +22,7 @@ bot.on(message('text'), async (context) => {
 
     let userName = context.message.from.username;
     let message = context.message.text;
-
+    
     console.log(`${userName}: ${message}`);
 
     let platformUrl = identifyUrlType(message);
