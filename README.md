@@ -1,31 +1,27 @@
 # Tidal2Spotify Telegram Bot
 
-## About
-
-Convert your Tidal song links to Spotify with this Telegram bot.
-
-## Description
-
-This bot transfers your Tidal playlists to Spotify. Just paste your Tidal song URL and get the equivalent
-Spotify link.
+This Telegram bot allows users to convert Tidal song URLs to Spotify URLs seamlessly. Built with TypeScript, Telegraf.js, and the Songlink API, it automatically detects Tidal URLs in group chats and responds with the equivalent Spotify link.
 
 ## Features
 
-- Converts Tidal song URLs to Spotify URLs
-- Easy to use with Telegram chat app
+- Recognizes Tidal URLs in Telegram chats.
+- Converts Tidal URLs to Spotify URLs using the Songlink API.
+- Posts the corresponding Spotify URL back to the chat.
 
-## Tech Stack
+## Getting Started
 
-- TypeScript
-- Telegraf.js
-- Songlink API (conversion)
+### Prerequisites
 
-## Usage
+- Telegram account.
+- A group chat on Telegram.
+- Admin privileges in the group chat.
 
-1. Open a group chat in Telegram
-2. Search for and add [@tidal_to_spotify_bot](https://t.me/tidal_to_spotify_bot) to the group
-3. Give admin privileges to the bot
-4. Paste your Tidal song URL in the chat window
-5. The bot will reply with the corresponding Spotify URL
+### How to Use
+
+1. **Open a group chat in Telegram.**
+2. **Search for and add @tidal_to_spotify_bot to the group.**
+3. **Give admin privileges to the bot.**
+4. **Paste your Tidal song URL in the chat window.**
+5. **The bot will reply with the corresponding Spotify URL.**
 
 **Enjoy!*
